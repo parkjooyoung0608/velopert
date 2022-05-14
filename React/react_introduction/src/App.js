@@ -2,6 +2,7 @@ import React from 'react';
 import Hello from './Hello';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
+import InputSample from './InputSample';
 
 import './App.css'
 
@@ -32,10 +33,14 @@ function App() {
 
       <div style={style}>{name}</div>
       <div className="gray-box"></div>
-
+      
+      <hr/>
       <h4>Counter 예제</h4>
       <Counter />
 
+      <hr/>
+      <h4>Input 상태 관리하기</h4>
+      <InputSample />
     </div>
   );
 }
