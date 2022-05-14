@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function InputSample(){
-
     const [inputs, setInputs] = useState({
         name:'',
         nickname:''
     });
+
+    const nameInput = useRef();
 
     const { name, nickname } = inputs; // 비구조화 할당을 통해 값 추출
     
@@ -22,14 +23,26 @@ function InputSample(){
             name:'',
             nickname: '',
         })
+        nameInput.current.focus();
     }
 
     return (
         <div>
             {/* input 상태를 관리할 때는 value 값을 설정해주는 것도 중요하다. 
             그렇게해야, 상태가 바뀌었을 때 input 내용도 업데이트된다. */}
-            <input name="name" placeholder='이름' onChange={onChange} value={name} />
-            <input name="nickname" placeholder='닉네임' onChange={onChange} value={nickname} />
+            <input 
+                name="name" 
+                placeholder='이름' 
+                onChange={onChange} 
+                value={name}
+                ref={nameInput} 
+            />
+            <input 
+                name="nickname" 
+                placeholder='닉네임' 
+                onChange={onChange} 
+                value={nickname} 
+            />
             <button onClick={onReset}>초기화</button>
             <div>
                 <b>값: </b>
@@ -55,6 +68,7 @@ function InputSample(){
 // !! 지금 기억할 것
 // 리액트에서 객체를 업데이트하게 될 때는 기존 객체 직접 수정이 아닌 새로운 객체를 만들어서 새 객체에 변화를 줘야한다.
 
-
+// 초기화 버튼을 누르면 포커스가 초기화 버튼에 남는다 
+// -> 버튼을 클릭했을 때 input에 포커스가 잡히도록
 
 export default InputSample;
