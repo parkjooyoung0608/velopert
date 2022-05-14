@@ -15,7 +15,7 @@ function App() {
     <div>
       {/* 컴포넌트는 일종의 UI 조각, 쉽게 재사용 가능 */}
       <Hello name="react" color="red"/>
-      <Hello />
+      <Hello color="red"/>
       <Hello />
 
       <div style={style}>{name}</div>
