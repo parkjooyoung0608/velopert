@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import Hello from './Hello';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
@@ -17,6 +17,30 @@ function App() {
     padding: 24, // 기본단위
     paddingf: '1rem' // 다른 단위 사용 시 문자열로 설정
   }
+
+  const users = [
+      {
+          id: 1,
+          username: 'velopert',
+          email: 'public.velopert@gmail.com'
+      },
+      {
+          id: 2,
+          username: 'lemon',
+          email: 'lemon.velopert@gmail.com'
+      },
+      {
+          id: 3,
+          username: 'jooyoung',
+          email: 'jooyoung.velopert@gmail.com'
+      },
+      
+]
+
+const nextId = useRef(4);
+const onCreate = () => {
+  // 나중에 구현 할 배열에 항목 추가하는 로직
+}
 
   return (
     <div>
@@ -50,6 +74,11 @@ function App() {
        <hr/>
        <h4>배열 렌더링하기</h4>
        <UserList />
+
+       <hr/>
+       <h4>useRef로 변수 관리</h4>
+       <UserList users={users} />
+       
 
     </div>
   );

@@ -41,7 +41,7 @@ function UserList (){
                 <User user={users[1]} />
                 <User user={users[2]} /> 
             */}
-            {users.map(user => (
+            { users.map(user => (
                 <User user={user} key={user.id} />
             ))}
             {/* 리액트에서 배열을 랜더링 할 때는 key라는 props를 설정해야됨
@@ -50,9 +50,9 @@ function UserList (){
             */}
 
             {/* 만약 배열의 원소안에 고유한 값이 없다면 map() 콟백함수 두번째 파라미터 index를 key로 사용하면 된다. */}
-            {users.map((user, index) => (
+            {/* {users.map((user, index) => (
                 <User user={user} key={index} />
-            ))}
+            ))} */}
 
         </div>
     )
