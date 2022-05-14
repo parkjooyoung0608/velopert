@@ -14,9 +14,10 @@ function App() {
   return (
     <div>
       {/* 컴포넌트는 일종의 UI 조각, 쉽게 재사용 가능 */}
+      <Hello name="react" color="red"/>
       <Hello />
       <Hello />
-      <Hello />
+
       <div style={style}>{name}</div>
       <div className="gray-box"></div>
     </div>
