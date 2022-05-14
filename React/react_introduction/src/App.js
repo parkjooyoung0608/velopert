@@ -3,6 +3,7 @@ import Hello from './Hello';
 import Wrapper from './Wrapper';
 import Counter from './Counter';
 import InputSample from './InputSample';
+import UserList from './UserList';
 
 import './App.css'
 
@@ -39,8 +40,17 @@ function App() {
       <Counter />
 
       <hr/>
+      {/* 
+          input에 입력하는 값이 하단에 나타나고,
+          초기화 버튼 누르면 input 값이 비워지도록 구현
+       */}
       <h4>Input 상태 관리하기</h4>
       <InputSample />
+
+       <hr/>
+       <h4>배열 렌더링하기</h4>
+       <UserList />
+
     </div>
   );
 }
