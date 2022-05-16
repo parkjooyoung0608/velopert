@@ -1,9 +1,10 @@
 import React from 'react';
 
-// 배열에 새로운 항목을 추가하는 방법
-// 1. input 두개오 button 하나로 이루어진 CreateUser.js 컴포넌트 만들기
-// CreateUser 컴포넌트의 상태관리는 부모 컴포넌트인 App에서 하고, input 값 및 이벤트로 등록할 함수들을 props로 넘겨받아서 사용한다.
-function CreateUser({ username, email, onChange, onCreate }){
+// React.memo 
+// 컴포넌트 props가 바뀌끼지 않았다면 리렌더링 방지 -> 리렌더링 성능 최적화 
+// 컴포넌트에서 리렌더링이 필요한 상황에서만 리렌더링 하도록 설정
+// 사용법이 굉장히 쉽다. 그냥 감싸주면된다.
+const CreateUser = ({ username, email, onChange, onCreate }) => {
     return(
         <div>
             <input 
@@ -23,4 +24,4 @@ function CreateUser({ username, email, onChange, onCreate }){
     )
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);
