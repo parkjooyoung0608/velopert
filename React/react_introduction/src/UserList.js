@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 function User({ user, onRemove, onToggle }) {
   // useEffect : 마운트 언마운트
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
     // deps 파라미터를 생략한다면, 컴포넌트가 리렌더링 될 때마다 호출
   })
 

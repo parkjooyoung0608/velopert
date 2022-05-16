@@ -2,6 +2,15 @@ import React, { useRef, useState } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 
+// 성능 최적화를 위해 연산된 값을 useMemo라는 Hook을 사용해 재사용하는 방법을 알아보자
+function countActiveUsers(users){
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+}
+// active가 true인 사용자의 수를 세어서 화면에 렌더링
+// 콘솔 메세지를 출력한 이유 : 호출될때마다 알수있게 하기 위함
+// 여기서 발생하는 성능적 문제 : input의 값을 바꿀때도 countActiveUsers함수가 호출된다.
+
 function App() {
   const [Inputs, setInputs] = useState({
     username: '',
@@ -72,6 +81,7 @@ function App() {
     )
   }
 
+  const count = countActiveUsers(users);
   return (
     <>
       <CreateUser 
@@ -81,6 +91,7 @@ function App() {
         onCreate={onCreate}
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+      <div>활성사용자 수 : {count}</div>
     </>
   )
 }
