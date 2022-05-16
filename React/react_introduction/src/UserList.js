@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function User({ user, onRemove, onToggle }) {
+  useEffect(() => {
+    console.log('컴포넌트가 화면에 나타남')
+    return () => {
+      console.log('컴포넌트가 화면에 사라짐')
+    }
+  }, [])
+
   return (
     <div>
       <b
@@ -22,7 +29,7 @@ function UserList({ users, onRemove, onToggle }) {
         <User 
           user={user} 
           key={user.id} 
-          onRemove={onRemove} 
+          onRemove={onRemove}
           onToggle={onToggle}
         />
       ))}
