@@ -52,6 +52,9 @@ function reducer(state, action) {
   }
 }
 
+// UserDispatch 라는 이름으로 내보내줍니다.
+export const UserDispatch = React.createContext(null);
+// 나중에 사용하고 싶을 때 불러서 사용할 수 있습니다.
 
 function App() {
   const [{ username, email }, onChange, reset] = useInputs ({
@@ -92,16 +95,17 @@ function App() {
 
   const count = useMemo( () => countActiveUsers(users), [users] )
   return (
-    <>
+    // UserDispatch Context를 만들어서 어디서든지 dispatch 를 꺼내 쓸 수 있도록 준비
+    <UserDispatch.Provider value={dispatch}>
       <CreateUser
         username={username} 
         email={email}
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
+      <UserList users={users} />
       <div>활성사용자 수 : {count}</div>
-    </>
+    </UserDispatch.Provider>
   )
 }
 
