@@ -16,12 +16,12 @@ const UserList = () => {
             email: 'mirkduddl@naver.com'
         },
         {
-            id: 1,
+            id: 2,
             username: 'peddrtz',
             email: 'rdddl@naver.com'
         },
         {
-            id: 1,
+            id: 3,
             username: 'opert',
             email: 'irkdl@naver.com'
         },
