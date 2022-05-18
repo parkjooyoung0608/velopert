@@ -42,15 +42,8 @@ function App() {
   )
 const nextId = useRef(4);
 const onCreate = () => {
-  // 얜 뭐야...?
-  // const user = {
-  //   id:nextId.current,
-  //   username,
-  //   email
-  // }
 
-  // console.log(user.username);
-
+  // Create 이벤트가 실행되면 Users state에 {} 객체 값이 추가!!
   setUsers([
     ...users,
     {
@@ -70,6 +63,13 @@ const onCreate = () => {
   nextId.current += 1 
 }
 
+  const onRemove = (id) => {
+    console.log(id)
+    // user.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열 만듦
+    // = user.id 가 id 인 것을 제거함
+    // setUsers(users.filter(user => user.id !== id));
+  }
+
   return (
     <>
       <CreateUser
@@ -79,7 +79,7 @@ const onCreate = () => {
         onCreate={onCreate}
       />
       {/* 여기는 왜 value 값이 없을까? */}
-      <UserList users={users}/>  
+      <UserList users={users} onRemove={onRemove} />  
     </>
   );
 }
