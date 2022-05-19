@@ -26,17 +26,20 @@ function App() {
       {
           id: 1,
           username: 'velopert',
-          email: 'mirkduddl@naver.com'
+          email: 'mirkduddl@naver.com',
+          active: true
       },
       {
           id: 2,
           username: 'peddrtz',
-          email: 'rdddl@naver.com'
+          email: 'rdddl@naver.com',
+          active: false
       },
       {
           id: 3,
           username: 'opert',
-          email: 'irkdl@naver.com'
+          email: 'irkdl@naver.com',
+          active: true
       },
     ]
   )
@@ -64,10 +67,20 @@ const onCreate = () => {
 }
 
   const onRemove = (id) => {
-    console.log(id)
+    // console.log(id)
     // user.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열 만듦
     // = user.id 가 id 인 것을 제거함
-    // setUsers(users.filter(user => user.id !== id));
+    setUsers(users.filter(user => user.id !== id));
+  }
+
+  const onToggle = (id) => {
+    setUsers(
+      users.map( user =>
+        user.id === id ? { 
+          ...user, 
+          active : !user.active 
+        } : user )
+    ) 
   }
 
   return (
@@ -79,7 +92,7 @@ const onCreate = () => {
         onCreate={onCreate}
       />
       {/* 여기는 왜 value 값이 없을까? */}
-      <UserList users={users} onRemove={onRemove} />  
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>  
     </>
   );
 }
