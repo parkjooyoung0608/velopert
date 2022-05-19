@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@types/react": "^18.0.9",
     "react-icons": "^4.3.1",
     "styled-components": "^5.3.5"
   }
